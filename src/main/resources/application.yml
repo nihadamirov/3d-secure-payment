@@ -1,0 +1,26 @@
+server:
+  port: 8282
+
+spring:
+  application:
+    name: 3d-secure-payment
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    username:
+    password:
+    driver-class-name: oracle.jdbc.OracleDriver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.Oracle10gDialect
+        show_sql: true
+
+logging:
+  level:
+    com.securepayment:
+      jdbc:
+        core: DEBUG
