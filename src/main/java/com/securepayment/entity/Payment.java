@@ -29,6 +29,7 @@ public class Payment {
     @Column(name = "payment_method", nullable = false)
     private String paymentMethod;
 
+
     @Column(name = "three_d_secure_required", nullable = false)
     private boolean threeDSecureRequired;
 
