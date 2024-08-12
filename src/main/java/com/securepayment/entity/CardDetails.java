@@ -10,20 +10,21 @@ import lombok.Data;
 public class CardDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "card_details_seq_gen")
+    @SequenceGenerator(name = "card_details_seq_gen", sequenceName = "CARD_DETAILS_SEQ", allocationSize = 1)
     private Long id;
 
     // Tokenized card number
-    @Column(name = "card_number", nullable = false)
+    @Column(name = "card_number")
     private String cardNumber;
 
-    @Column(name = "card_holder_name", nullable = false)
+    @Column(name = "card_holder_name")
     private String cardHolderName;
 
-    @Column(name = "expiry_month", nullable = false)
+    @Column(name = "expiry_month")
     private String expiryMonth;
 
-    @Column(name = "expiry_year", nullable = false)
+    @Column(name = "expiry_year")
     private String expiryYear;
 
     @Column(name = "card_type")

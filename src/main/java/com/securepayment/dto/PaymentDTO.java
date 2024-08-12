@@ -6,8 +6,6 @@ public record PaymentDTO(
         Double amount,
         String currency,
         String status,
-        String paymentMethod,
-        boolean threeDSecureRequired,
-        String threeDSecur
+        String paymentMethod
 ) {
 }
