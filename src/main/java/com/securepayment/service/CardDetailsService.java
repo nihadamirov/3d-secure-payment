@@ -20,11 +20,25 @@ public class CardDetailsService {
 
 
     public CardDetails convertToEntity(CardDetailsDTO cardDetailsDTO) {
-        return modelMapper.map(cardDetailsDTO, CardDetails.class);
+        CardDetails cardDetails = new CardDetails();
+        cardDetails.setId(cardDetailsDTO.id());
+        cardDetails.setCardNumber(cardDetailsDTO.cardNumber());
+        cardDetails.setCardHolderName(cardDetailsDTO.cardHolderName());
+        cardDetails.setExpiryMonth(cardDetailsDTO.expiryMonth());
+        cardDetails.setExpiryYear(cardDetailsDTO.expiryYear());
+        cardDetails.setCardType(cardDetailsDTO.cardType());
+        return cardDetails;
     }
 
     public CardDetailsDTO convertToDto(CardDetails cardDetails) {
-        return modelMapper.map(cardDetails, CardDetailsDTO.class);
+        return new CardDetailsDTO(
+                cardDetails.getId(),
+                cardDetails.getCardNumber(),
+                cardDetails.getCardHolderName(),
+                cardDetails.getExpiryMonth(),
+                cardDetails.getExpiryYear(),
+                cardDetails.getCardType()
+        );
     }
 
 

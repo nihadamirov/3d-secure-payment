@@ -1,12 +1,15 @@
 package com.securepayment.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 @Entity
 @Table(name = "CARD_DETAILS")
 @Data
+@NoArgsConstructor
 public class CardDetails {
 
     @Id

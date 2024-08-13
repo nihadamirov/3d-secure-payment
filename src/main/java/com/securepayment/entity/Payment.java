@@ -1,13 +1,17 @@
 package com.securepayment.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "PAYMENTS")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Payment {
 
     @Id
