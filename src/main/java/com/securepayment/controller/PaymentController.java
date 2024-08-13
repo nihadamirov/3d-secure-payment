@@ -9,9 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/payments")
+@RequestMapping("/api/payments")
 @RequiredArgsConstructor
-@Slf4j
 public class PaymentController {
 
     private final PaymentService paymentService;
@@ -20,7 +19,6 @@ public class PaymentController {
     public ResponseEntity<PaymentDTO> processPayment(@RequestParam Long customerId,
                                                      @RequestParam Long cardId,
                                                      @RequestBody PaymentDTO paymentDTO) {
-        log.info("Processing payment for customer: {} and card: {} ", customerId, cardId);
         PaymentDTO processedPayment = paymentService.processPayment(customerId, cardId, paymentDTO);
         return new ResponseEntity<>(processedPayment, HttpStatus.CREATED);
     }
