@@ -1,7 +1,6 @@
 package com.securepayment.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -17,7 +16,6 @@ public class CardDetails {
     @SequenceGenerator(name = "card_details_seq_gen", sequenceName = "CARD_DETAILS_SEQ", allocationSize = 1)
     private Long id;
 
-    // Tokenized card number
     @Column(name = "card_number")
     private String cardNumber;
 

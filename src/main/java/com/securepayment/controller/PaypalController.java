@@ -32,7 +32,7 @@ public class PaypalController {
 
             Payment payment = paypalService.createPayment(
                     10.0,
-                    "AZN",
+                    "USD",
                     "paypal",
                     "sale",
                     "Payment description",
@@ -41,7 +41,7 @@ public class PaypalController {
             );
 
             for (Links links : payment.getLinks()) {
-                if (links.equals("approval_url")) {
+                if (links.getRel().equals("approval_url")) {
                     return new RedirectView((links.getHref()));
                 }
             }
@@ -61,12 +61,14 @@ public class PaypalController {
             Payment payment = paypalService.executePayment(paymentId, payerId);
             if (payment.getState().equals("approved")) {
                 return "paymentSuccess";
+            } else {
+                return "paymentError";
             }
 
         } catch (PayPalRESTException e) {
             log.error("Error occurred:: ", e);
         }
-        return "paymentPuccess";
+        return "paymentSuccess";
     }
 
 

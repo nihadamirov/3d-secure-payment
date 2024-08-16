@@ -6,7 +6,6 @@ import com.paypal.base.rest.PayPalRESTException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.naming.PartialResultException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
